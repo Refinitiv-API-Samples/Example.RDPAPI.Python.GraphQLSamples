@@ -1,0 +1,39 @@
+{% macro render_dictionary(dictionary) %}
+<table>
+    <tr>
+        {%- for key in dictionary %}
+        <th>{{ key }}</th>
+        {%- endfor %}
+    </tr>
+    <tr>
+        {%- for _, value in dictionary.items() %}
+        <td>{{ render_data(value) }}</td>
+        {%- endfor -%}
+    </tr>
+</table>
+{% endmacro %}
+
+{% macro render_list(array) -%}
+<table>
+    {% for item in array -%}
+    <tr>
+        <td>{{ render_data(item) }}</td>
+    </tr>
+    {%- endfor -%}
+</table>
+{% endmacro -%}
+
+{%- macro render_data(data) -%}
+    {%- if data is iterable and data is not string -%}
+        {%- if data is mapping -%}
+            {{ render_dictionary(data) }}
+        {%- else -%}
+            {{ render_list(data) }}
+        {%- endif -%}
+    {%- else -%}
+        {{ data }}
+    {%- endif -%}
+{%- endmacro -%}
+
+
+{{ render_data(data_structure) }}

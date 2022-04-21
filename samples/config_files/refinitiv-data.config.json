@@ -1,0 +1,19 @@
+{
+  "config-change-notifications-enabled": true,
+  "http": {
+    "request-timeout": 30
+  },
+  "sessions": {
+    "default": "platform.default",
+    "platform": {
+      "default": {
+        "base-url": "https://api.ppe.refinitiv.com"
+      }
+    },
+    "desktop": {
+      "workspace": {
+        "app-key": "YOUR APP KEY GOES HERE!"
+      }
+    }
+  }
+}

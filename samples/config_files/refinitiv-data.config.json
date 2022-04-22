@@ -7,7 +7,7 @@
     "default": "platform.default",
     "platform": {
       "default": {
-        "base-url": "https://api.ppe.refinitiv.com"
+        "base-url": "https://api.refinitiv.com"
       }
     },
     "desktop": {

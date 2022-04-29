@@ -22,7 +22,7 @@ to the breadth and depth of financial data and services available on the Refinit
 > this Github repository to your local machine on which the Python program is installed. Then use
 > the `pip` or `conda` package managers to install the Jupyter Notebook library to your local machine.
 
-To run the pre-canned queries:
+To run the pre-cannend queries:
 
 1. Go to the `config_files` directory.
 

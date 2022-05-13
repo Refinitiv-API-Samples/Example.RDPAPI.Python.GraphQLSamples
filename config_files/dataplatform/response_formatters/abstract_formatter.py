@@ -6,6 +6,10 @@ class FormattedData(ABC):
     def display(self):
         pass
 
+    @abstractmethod
+    def get_display_data(self) -> dict:
+        pass
+
 
 class ResponseFormatter(ABC):
     @abstractmethod

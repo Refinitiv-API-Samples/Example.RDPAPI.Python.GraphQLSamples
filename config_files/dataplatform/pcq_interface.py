@@ -1,11 +1,31 @@
-# pylint: disable=import-error
-from .response_formatters.abstract_formatter import FormattedData
+from .response_formatters.abstract_formatter import ResponseFormatter
+from .response_formatters.handlebars_formatter import HandlebarsResponseFormatter
 from .response_formatters.json_formatter import JSONResponseFormatter
+from .response_formatters.table_formatter import TableResponseFormatter
 
 
-def display_output(data: str):
-    _format_data(data).display()
+def display_output(data: str, formatter: ResponseFormatter):
+    formatted_data = formatter.format(data)
+    formatted_data.display()
 
 
-def _format_data(data: str) -> FormattedData:
-    return JSONResponseFormatter().format(data)
+class NoTemplateException(Exception):
+    pass
+
+
+class FormatterSelector:
+    def __init__(self, handlebars_template: str = ""):
+        self._handlebars_template = handlebars_template
+
+    def get_formatter(self, format_: str = "json") -> ResponseFormatter:
+        formatters = {
+            "json": JSONResponseFormatter,
+            "table": TableResponseFormatter,
+            "handlebars": self._get_handlebars_formatter,
+        }
+        return formatters[format_]()
+
+    def _get_handlebars_formatter(self):
+        if not self._handlebars_template:
+            raise NoTemplateException("No template provided for handlebars.")
+        return HandlebarsResponseFormatter(self._handlebars_template)

@@ -14,6 +14,9 @@ class JSONFormattedData(FormattedData):
     def display(self):
         print(self._data_string)
 
+    def get_display_data(self) -> dict:
+        return {"text/plain": [self._data_string]}
+
 
 class JSONResponseFormatter(ResponseFormatter):
     def __init__(self, indent: int = 4):

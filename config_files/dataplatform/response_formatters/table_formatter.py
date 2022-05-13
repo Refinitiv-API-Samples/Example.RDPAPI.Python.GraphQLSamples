@@ -1,18 +1,10 @@
 import json
 from pathlib import Path
 
-from IPython.core.display import display, HTML
 from jinja2 import Template
 
-from .abstract_formatter import ResponseFormatter, FormattedData
-
-
-class TableFormattedData(FormattedData):
-    def __init__(self, formatted_data: HTML):
-        self._formatted_data = formatted_data
-
-    def display(self):
-        display(self._formatted_data)
+from .abstract_formatter import ResponseFormatter
+from .handlebars_formatter import HTMLFormattedData
 
 
 class TableResponseFormatter(ResponseFormatter):
@@ -26,9 +18,9 @@ class TableResponseFormatter(ResponseFormatter):
             template = Template(file.read())
         return template
 
-    def format(self, data: str) -> TableFormattedData:
+    def format(self, data: str) -> HTMLFormattedData:
         extracted_data = self._extract_data(data)
-        return TableFormattedData(HTML(self._template.render(data_structure=extracted_data)))
+        return HTMLFormattedData(self._template.render(data_structure=extracted_data))
 
     @staticmethod
     def _extract_data(raw_data: str) -> dict:

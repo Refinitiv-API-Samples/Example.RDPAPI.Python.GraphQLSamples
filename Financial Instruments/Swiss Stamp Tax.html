@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ObjectId</th>
+            <th>Identifier type</th>
+            <th>ID</th>
+            <th>Asset type</th>
+            <th>Swiss domestic<br> entity</th>
+            <th>Liable for Swiss<br> Stamp Duty Tax</th>
+            <th>Taxation comment</th>
+            <th>Taxation type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each DerivedContentGovCorpBonds}}
+        <tr>
+            <td>{{this.ObjectId}}</td>
+            <td>{{this._metadata.identifierTypeName}}</td>
+            <td>{{this._metadata.identifier}}</td>
+            <td>{{this.SwissStampDutyTax.AssetTypeDescription}}</td>
+            <td>{{this.SwissStampDutyTax.IssuerDomicileText}}</td>
+            <td>{{this.SwissStampDutyTax.SwissStampDutyFlag}}</td>
+            <td>{{this.SwissStampDutyTax.TaxationComment}}</td>
+            <td>{{this.SwissStampDutyTax.TaxationType}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

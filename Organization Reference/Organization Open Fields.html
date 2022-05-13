@@ -1,0 +1,65 @@
+<table>
+  <thead>
+    <tr>
+      <td>ObjectId</td>
+      <td>Names</td>
+      <td>OrganizationIncorporation_v2</td>
+      <td>OrganizationDomicile_v2</td>
+      <td>OrganizationIdentifiers</td>
+      <td>ClassificationTrbcPrimaryScheme_v2<br>ObjectId</td>
+      <td>ClassificationTrbcPrimaryScheme_v2<br>Identifier</td>
+      <td>ClassificationTrbcPrimaryScheme_v2<br>Industry</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each data.OrganizationReference}}
+    <tr>
+      <td>{{#if ObjectId}}{{ObjectId}}{{/if}}</td>
+      <td>
+        {{#each Names.Name.OrganizationName}}
+        {{#if @index}}, {{/if}}
+        {{#if Name}}{{Name}}{{/if}}
+        {{/each}}
+      </td>
+      <td>
+        {{#each OrganizationIncorporation_v2.Identifier.Identifiers}}
+        {{#if @index}}, {{/if}}
+        {{#if Value}}{{Value}}{{/if}}
+        {{/each}}
+      </td>
+      <td>
+        {{#each OrganizationDomicile_v2.Identifier.Identifiers}}
+        {{#if @index}}, {{/if}}
+        {{#if Value}}{{Value}}{{/if}}
+        {{/each}}
+      </td>
+      <td>
+        {{#each OrganizationIdentifiers}}
+        {{#if @index}}, {{/if}}
+
+        {{#each IdentifierData}}
+        {{#if @index}}, {{/if}}
+        {{#if Identifier}}{{Identifier}}{{/if}}
+        {{/each}}
+
+        {{/each}}
+      </td>
+      {{#with ClassificationTrbcPrimaryScheme_v2.TrbcSchemeParent.TrbcSchemeParent.TrbcSchemeParent.TrbcSchemeParent}}
+      <td>{{#if ObjectId}}{{ObjectId}}{{/if}}</td>
+      <td>
+        {{#each Identifier.Identifiers}}
+        {{#if @index}}, {{/if}}
+        {{#if Value}}{{Value}}{{/if}}
+        {{/each}}
+      </td>
+      <td>
+        {{#each Industry.Names}}
+        {{#if @index}}, {{/if}}
+        {{#if Name}}{{Name}}{{/if}}
+        {{/each}}
+      </td>
+      {{/with}}
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

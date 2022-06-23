@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Value Domain Full Name</th>
+            <th>Short Name</th>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each ValueDomainEnumeration}}
+        <tr>
+            <td>{{this.ValueDomainEnumeration.LongName}}</td>
+            <td>{{this.ValueDomainEnumeration.Name}}</td>
+            <td>{{this.ValueDomainEnumeration.Value}}</td>
+            <td>{{this.ValueDomainEnumeration.Names.[0].Name}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

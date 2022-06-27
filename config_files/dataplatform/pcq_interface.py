@@ -1,4 +1,9 @@
 from .response_formatters.abstract_formatter import ResponseFormatter
+from .response_formatters.chart_formatter import (
+    ChartResponseFormatter,
+    DataSeriesExtractor,
+    TitleExtractor,
+)
 from .response_formatters.handlebars_formatter import HandlebarsResponseFormatter
 from .response_formatters.json_formatter import JSONResponseFormatter
 from .response_formatters.table_formatter import TableResponseFormatter
@@ -22,6 +27,7 @@ class FormatterSelector:
             "json": JSONResponseFormatter,
             "table": TableResponseFormatter,
             "handlebars": self._get_handlebars_formatter,
+            "chart": self._get_chart_formatter,
         }
         return formatters[format_]()
 
@@ -29,3 +35,7 @@ class FormatterSelector:
         if not self._handlebars_template:
             raise NoTemplateException("No template provided for handlebars.")
         return HandlebarsResponseFormatter(self._handlebars_template)
+
+    @staticmethod
+    def _get_chart_formatter():
+        return ChartResponseFormatter(DataSeriesExtractor(), TitleExtractor("LongTitle"))

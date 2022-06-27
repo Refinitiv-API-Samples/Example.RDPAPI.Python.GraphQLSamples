@@ -16,7 +16,7 @@ class HTMLFormattedData(FormattedData):
     def get_display_data(self) -> dict:
         return {
             "text/html": [self._formatted_data],
-            "test/plain": [self._formatted_data],
+            "text/plain": [self._formatted_data],
         }
 
 

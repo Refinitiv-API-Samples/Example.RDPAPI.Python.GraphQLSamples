@@ -12,17 +12,21 @@
         </tr>
     </thead>
     <tbody>
+        {{#with data}}
         {{#each DerivedContentGovCorpBonds}}
         <tr>
             <td>{{this.ObjectId}}</td>
             <td>{{this._metadata.identifierTypeName}}</td>
             <td>{{this._metadata.identifier}}</td>
-            <td>{{this.SwissStampDutyTax.AssetTypeDescription}}</td>
-            <td>{{this.SwissStampDutyTax.IssuerDomicileText}}</td>
-            <td>{{this.SwissStampDutyTax.SwissStampDutyFlag}}</td>
-            <td>{{this.SwissStampDutyTax.TaxationComment}}</td>
-            <td>{{this.SwissStampDutyTax.TaxationType}}</td>
+            {{#with SwissStampDutyTax}}
+            <td>{{AssetTypeDescription}}</td>
+            <td>{{IssuerDomicileText}}</td>
+            <td>{{SwissStampDutyFlag}}</td>
+            <td>{{TaxationComment}}</td>
+            <td>{{TaxationType}}</td>
+            {{/with}}
         </tr>
         {{/each}}
+        {{/with}}
     </tbody>
 </table>

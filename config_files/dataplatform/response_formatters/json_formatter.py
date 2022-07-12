@@ -2,7 +2,7 @@ import json
 
 from pygments import highlight
 from pygments.formatters.terminal import TerminalFormatter
-from pygments.lexers.data import JsonLexer
+from pygments.lexers.data import JsonLexer  # noqa
 
 from .abstract_formatter import ResponseFormatter, FormattedData
 

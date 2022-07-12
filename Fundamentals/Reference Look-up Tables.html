@@ -8,13 +8,23 @@
         </tr>
     </thead>
     <tbody>
+        {{#with data}}
         {{#each ValueDomainEnumeration}}
         <tr>
-            <td>{{this.ValueDomainEnumeration.LongName}}</td>
-            <td>{{this.ValueDomainEnumeration.Name}}</td>
-            <td>{{this.ValueDomainEnumeration.Value}}</td>
-            <td>{{this.ValueDomainEnumeration.Names.[0].Name}}</td>
+            {{#with ValueDomainEnumeration}}
+            <td>{{LongName}}</td>
+            <td>{{#if Name}}{{Name}}{{/if}}</td>
+            <td>{{Value}}</td>
+            <td>
+                <ul>
+                    {{#each Names}}
+                    <li>{{Name}}</li>
+                    {{/each}}
+                </ul>
+            </td>
+            {{/with}}
         </tr>
         {{/each}}
+        {{/with}}
     </tbody>
 </table>

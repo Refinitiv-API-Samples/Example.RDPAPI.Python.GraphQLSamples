@@ -1,6 +1,6 @@
 import json
 
-import pybars
+import pybars  # noqa
 from IPython.core.display import display, HTML
 
 from .abstract_formatter import ResponseFormatter, FormattedData

@@ -1,7 +1,8 @@
-<table>
-    <tbody>
+{{#with data}}
+    <table>
+        <tbody>
         {{#each GovCorpInstrument}}
-        <td colspan="2"><b>Identifier Type</b></td>
+        <tr><td colspan="2"><b>Identifier Type</b></td></tr>
         <tr>
             <td>Identifier Type Name</td>
             <td>{{this._metadata.identifierTypeName}}</td>
@@ -10,7 +11,7 @@
             <td>Identifier</td>
             <td>{{this._metadata.identifier}}</td>
         </tr>
-        <td colspan="2"><b>Reference</b></td>
+        <tr><td colspan="2"><b>Reference</b></td></tr>
         <tr>
             <td>Security Description</td>
             <td>{{this.Reference.SecurityDescription}}</td>
@@ -35,7 +36,7 @@
             <td>Cfi Code</td>
             <td>{{this.Reference.CfiCode}}</td>
         </tr>
-        <td colspan="2"><b>Asset Status</b></td>
+        <tr><td colspan="2"><b>Asset Status</b></td></tr>
         <tr>
             <td>Asset Status Code</td>
             <td>{{this.AssetStatus.AssetStatusCode}}</td>
@@ -48,86 +49,94 @@
             <td>Asset Effective From Date</td>
             <td>{{this.AssetStatus.EffectiveFromDate}}</td>
         </tr>
-        <td colspan="2"><b>Coupon Rate Schedule</b></td>
+        <tr><td colspan="2"><b>Coupon Rate Schedule</b></td></tr>
+        {{#each CouponRateSchedule}}
         <tr>
             <td>Coupon Rate</td>
-            <td>{{this.CouponRateSchedule.[0].CouponRate}}</td>
+            <td>{{CouponRate}}</td>
         </tr>
         <tr>
             <td>Coupon Effective From Date</td>
-            <td>{{this.CouponRateSchedule.[0].EffectiveFromDate}}</td>
+            <td>{{EffectiveFromDate}}</td>
         </tr>
         <tr>
             <td>Coupon Interest Leg Number</td>
-            <td>{{this.CouponRateSchedule.[0].InterestLegNumber}}</td>
+            <td>{{InterestLegNumber}}</td>
         </tr>
         <tr>
             <td>Coupon Last Changed Date</td>
-            <td>{{this.CouponRateSchedule.[0].LastChangedDate}}</td>
+            <td>{{LastChangedDate}}</td>
         </tr>
-        <td colspan="2"><b>Issuance Definition</b></td>
+        {{/each}}
+        <tr><td colspan="2"><b>Issuance Definition</b></td></tr>
+        {{#each IssuanceDefinition}}
         <tr>
             <td>Dated Date</td>
-            <td>{{this.IssuanceDefinition.[0].DatedDate}}</td>
+            <td>{{DatedDate}}</td>
         </tr>
         <tr>
             <td>Issue Currency Iso Code</td>
-            <td>{{this.IssuanceDefinition.[0].IssueCurrencyIsoCode}}</td>
+            <td>{{IssueCurrencyIsoCode}}</td>
         </tr>
         <tr>
             <td>Issue Amount</td>
-            <td>{{this.IssuanceDefinition.[0].IssueAmount}}</td>
+            <td>{{IssueAmount}}</td>
         </tr>
-        <td colspan="2"><b>Interest Definition</b></td>
+        {{/each}}
+        <tr><td colspan="2"><b>Interest Definition</b></td></tr>
+        {{#each InterestDefinition}}
         <tr>
             <td>Day Count Code</td>
-            <td>{{this.InterestDefinition.[0].DayCountCode_v2}}</td>
+            <td>{{DayCountCode_v2}}</td>
         </tr>
         <tr>
             <td>Day Count Code Description</td>
-            <td>{{this.InterestDefinition.[0].DayCountCodeDescription}}</td>
+            <td>{{DayCountCodeDescription}}</td>
         </tr>
-        <td colspan="2"><b>Amount Outstanding History</b></td>
+        {{/each}}
+        <tr><td colspan="2"><b>Amount Outstanding History</b></td></tr>
+        {{#each AmountOutstandingHistory}}
         <tr>
             <td>Currency Iso Code</td>
-            <td>{{this.AmountOutstandingHistory.[0].CurrencyIsoCode}}</td>
+            <td>{{CurrencyIsoCode}}</td>
         </tr>
         <tr>
             <td>Total Outstanding Amount</td>
-            <td>{{this.AmountOutstandingHistory.[0].TotalOutstandingAmount}}</td>
+            <td>{{TotalOutstandingAmount}}</td>
         </tr>
         <tr>
             <td>Effective From Date</td>
-            <td>{{this.AmountOutstandingHistory.[0].EffectiveFromDate}}</td>
+            <td>{{EffectiveFromDate}}</td>
         </tr>
         <tr>
             <td>Net Change Code</td>
-            <td>{{this.AmountOutstandingHistory.[0].NetChangeCode}}</td>
+            <td>{{NetChangeCode}}</td>
         </tr>
         <tr>
             <td>Net Change Code Description</td>
-            <td>{{this.AmountOutstandingHistory.[0].NetChangeCodeDescription}}</td>
+            <td>{{NetChangeCodeDescription}}</td>
         </tr>
+        {{/each}}
         <tr>
             <td colspan="2"><b>Identifiers</b></td>
         </tr>
         {{#each Identifiers}}
         <tr>
             <td style="width: 50%;">
-            <ul>
-            <li>Effective from date</li>
-            <li>Identifier Code</li>
-            <li>Identifier Code Description</li>
-            <li>Identifier Value</li>
-            </ul>
+                <ul>
+                    <li>Effective from date</li>
+                    <li>Identifier Code</li>
+                    <li>Identifier Code Description</li>
+                    <li>Identifier Value</li>
+                </ul>
             </td>
             <td style="width: 50%;">
-            <ul>
-            <li>{{this.EffectiveFromDate}}</li>
-            <li>{{this.IdentifierCode}}</li>
-            <li>{{this.IdentifierCodeDescription}}</li>
-            <li>{{this.IdentifierValue}}</li>
-            </ul>
+                <ul>
+                    <li>{{this.EffectiveFromDate}}</li>
+                    <li>{{this.IdentifierCode}}</li>
+                    <li>{{this.IdentifierCodeDescription}}</li>
+                    <li>{{this.IdentifierValue}}</li>
+                </ul>
             </td>
         </tr>
         {{/each}}
@@ -137,64 +146,76 @@
         {{#each Quotes}}
         <tr>
             <td style="width: 50%;">
-            <ul>
-            <li>Global Region Code</li>
-            <li>Identifier Type Code</li>
-            <li>Identifier Value</li>
-            <li>Object Type Code</li>
-            <li>Quote Contributor Code</li>
-            <li>Quote Currency  Iso Code</li>
-            <li>Is Quote Active?</li>
-            <li>Quote Price Source Code</li>
-            <li>Quote Price Source Code Description</li>
-            </ul>
+                <ul>
+                    <li>Global Region Code</li>
+                    <li>Identifier Type Code</li>
+                    <li>Identifier Value</li>
+                    <li>Object Type Code</li>
+                    <li>Quote Contributor Code</li>
+                    <li>Quote Currency Iso Code</li>
+                    <li>Is Quote Active?</li>
+                    <li>Quote Price Source Code</li>
+                    <li>Quote Price Source Code Description</li>
+                </ul>
             </td>
             <td style="width: 50%;">
-            <ul>
-            <li>{{this.Identifier.[0].GlobalRegionCode}}</li>
-            <li>{{this.Identifier.[0].IdentifierTypeCode}}</li>
-            <li>{{this.Identifier.[0].IdentifierValue}}</li>
-            <li>{{this.Identifier.[0].ObjectTypeCode}}</li>
-            <li>{{this.Identifier.[0].QuoteContributorCode}}</li>
-            <li>{{this.Identifier.[0].QuoteCurrencyIsoCode}}</li>
-            <li>{{this.Identifier.[0].QuoteIsActiveFlag}}</li>
-            <li>{{this.Identifier.[0].QuotePriceSourceCode}}</li>
-            <li>{{this.Identifier.[0].QuotePriceSourceCodeDescription}}</li>
-            </ul>
+                {{#each Identifier}}
+                <ul>
+                    {{#if GlobalRegionCode}}<li>{{GlobalRegionCode}}</li>{{/if}}
+                    {{#if IdentifierTypeCode}}<li>{{IdentifierTypeCode}}</li>{{/if}}
+                    {{#if IdentifierValue}}<li>{{IdentifierValue}}</li>{{/if}}
+                    {{#if ObjectTypeCode}}<li>{{ObjectTypeCode}}</li>{{/if}}
+                    {{#if QuoteContributorCode}}<li>{{QuoteContributorCode}}</li>{{/if}}
+                    {{#if QuoteCurrencyIsoCode}}<li>{{QuoteCurrencyIsoCode}}</li>{{/if}}
+                    {{#if QuoteIsActiveFlag}}<li>{{QuoteIsActiveFlag}}</li>{{/if}}
+                    {{#if QuotePriceSourceCode}}<li>{{QuotePriceSourceCode}}</li>{{/if}}
+                    {{#if QuotePriceSourceCodeDescription}}<li>{{QuotePriceSourceCodeDescription}}</li>{{/if}}
+                </ul>
+                {{/each}}
             </td>
         </tr>
         {{/each}}
         <tr>
             <td colspan="2"><b>Issuer</b></td>
         </tr>
+        {{#each Issuer.Names.Name.OrganizationName}}
         <tr>
             <td>Organization Name</td>
-            <td>{{this.Issuer.Names.Name.OrganizationName.[0].Name}}</td>
+            <td>{{Name}}</td>
         </tr>
         <tr>
             <td>Name Type Code</td>
-            <td>{{this.Issuer.Names.Name.OrganizationName.[0].NameTypeCode}}</td>
+            <td>{{NameTypeCode}}</td>
         </tr>
         <tr>
             <td>Name Type Code Description</td>
-            <td>{{this.Issuer.Names.Name.OrganizationName.[0].NameTypeCodeDescription}}</td>
+            <td>{{NameTypeCodeDescription}}</td>
         </tr>
+        {{/each}}
+        {{#with Issuer.ClassificationTrbcPrimaryScheme_v2}}
         <tr>
             <td>Industry Name</td>
-            <td>{{this.Issuer.ClassificationTrbcPrimaryScheme_v2.Industry.Name}}</td>
+            <td>{{Industry.Name}}</td>
         </tr>
+        {{#each Identifier.Identifiers}}
         <tr>
             <td>Identifier Value</td>
-            <td>{{this.Issuer.ClassificationTrbcPrimaryScheme_v2.Identifier.Identifiers.[0].Value}}</td>
+            <td>{{Value}}</td>
         </tr>
         <tr>
             <td>Identifier Value Type Code</td>
-            <td>{{this.Issuer.ClassificationTrbcPrimaryScheme_v2.Identifier.Identifiers.[0].ValueTypeCode}}</td>
+            <td>
+                {{ValueTypeCode}}
+            </td>
         </tr>
         <tr>
             <td>Identifier Value Type Id</td>
-            <td>{{this.Issuer.ClassificationTrbcPrimaryScheme_v2.Identifier.Identifiers.[0].ValueTypeId}}</td>
+            <td>
+                {{ValueTypeId}}
+            </td>
         </tr>
+        {{/each}}
+        {{/with}}
         <tr>
             <td>Jurisdiction of Incorporation</td>
             <td>{{this.Issuer.Details.OrganizationDetails.JurisdictionOfIncorporation}}</td>
@@ -220,5 +241,6 @@
             <td>{{this.Issuer.Details.OrganizationDetails.OrganizationStatusCodeDescription}}</td>
         </tr>
         {{/each}}
-    </tbody>
-</table>
+        </tbody>
+    </table>
+{{/with}}

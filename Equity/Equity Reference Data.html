@@ -1,0 +1,100 @@
+<table>
+    <tbody>
+        {{#each EDFInstrument}}
+        <td colspan="2"><b>Reference</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Instrument Common Name</li>
+            <li>CFI Code</li>
+            <li>Asset Type Description</li>
+            <li>Issuer's Domicile</li>
+            <li>Swiss Stamp Duty Flag</li>
+            <li>Taxation Comment</li>
+            <li>Taxation Type</li>
+            <li>Unit of Delivery Code</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.Reference.InstrumentCommonNames.[0].InstrumentCommonName}}</li>
+            <li>{{this.Reference.Cfi}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.AssetTypeDescription}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.IssuerDomicileText}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.SwissStampDutyFlag}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.TaxationComment}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.TaxationType}}</li>
+            <li>{{this.Reference.DerivedContent.UnitOfDelivery.UnitOfDeliveryCode}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Instrument Identifiers</b></td>
+        {{#each InstrumentIdentifiers}}
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Identifier Type</li>
+            <li>Identifier Value</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.IdentifierType.IdentifierType.Name}}</li>
+            <li>{{this.IdentifierData.[0].IdentifierValue}}</li>
+            </ul>
+            </td>
+        </tr>
+        {{/each}}
+        <td colspan="2"><b>Issuer</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Organization Name</li>
+            <li>Industry</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.Issuer.Names.Name.OrganizationName.[0].Name}}</li>
+            <li>{{this.Issuer.ClassificationTrbcPrimarySchemaV2.Industry.Name}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>All Quotes</b></td>
+        {{#each AllQuotes}}
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li><b>Quote Exchange Code</b></li>
+            <li><b>Market Attributable Source</b></li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.Reference.QuoteExchangeCode}}</li>
+            <li>{{this.MarketAttributableSource.Reference.Names.[0].Name}}</li>
+            </ul>
+            </td>
+        </tr>
+        {{#each QuoteIdentifiers}}
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Quote Identifier Type</li>
+            <li>Quote Identifier Value</li>
+            <li>Quote Identifier Effective From</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.IdentifierType.IdentifierType.Name}}</li>
+            <li>{{this.IdentifierData.[0].IdentifierValue}}</li>
+            <li>{{this.IdentifierData.[0].IdentifierEffectiveFrom}}</li>
+            </ul>
+            </td>
+        </tr>
+        {{/each}}
+        {{/each}}
+        {{/each}}
+    </tbody>
+</table>

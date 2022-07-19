@@ -1,0 +1,184 @@
+<table>
+    <tbody>
+        {{#each GovCorpInstrument}}
+        <td colspan="2"><b>Reference</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Security Description</li>
+            <li>Instrument Name</li>
+            <li>Maturity Date</li>
+            <li>Coupon Type Code</li>
+            <li>CFI Code</li>
+            <li>Minimum Denomination Amount</li>
+            <li>Denomination Increment Amount</li>
+            <li>Issuer Domicile Text</li>
+            <li>Swiss Stamp Duty Flag</li>
+            <li>Taxation Type</li>
+            <li>Taxation Comment</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.Reference.SecurityDescription}}</li>
+            <li>{{this.Reference.InstrumentName}}</li>
+            <li>{{this.Reference.MaturityDate}}</li>
+            <li>{{this.Reference.CouponTypeCode}}</li>
+            <li>{{this.Reference.CfiCode}}</li>
+            <li>{{this.Reference.MinimumDenominationAmount}}</li>
+            <li>{{this.Reference.DenominationIncrementAmount}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.IssuerDomicileText}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.SwissStampDutyFlag}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.TaxationType}}</li>
+            <li>{{this.Reference.DerivedContent.SwissStampDutyTax.TaxationComment}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Identifiers</b></td>
+        {{#each Identifiers}}
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Identifier Code</li>
+            <li>Identifier Value</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.IdentifierCode}}</li>
+            <li>{{this.IdentifierValue}}</li>
+            </ul>
+            </td>
+        </tr>
+        {{/each}}
+        <td colspan="2"><b>Original Issue Terms</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Instrument Type Code</li>
+            <li>Par Value</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.OriginalIssueTerms.InstrumentTypeCode}}</li>
+            <li>{{this.OriginalIssueTerms.ParValue}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Issuance Definition</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Issue Date</li>
+            <li>Dated Date</li>
+            <li>Issue Currency ISO Code</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.IssuanceDefinition.[0].IssueDate}}</li>
+            <li>{{this.IssuanceDefinition.[0].DatedDate}}</li>
+            <li>{{this.IssuanceDefinition.[0].IssueCurrencyIsoCode}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Interest Definition</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Coupon Payment Frequency Code</li>
+            <li>Day Count Code</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.InterestDefinition.[0].CouponPaymentFrequencyCode_v2}}</li>
+            <li>{{this.InterestDefinition.[0].DayCountCode_v2}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Amount Outstanding History</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Change Amount</li>
+            <li>Currency ISO Code</li>
+            <li>Effective From Date</li>
+            <li>Face Value Factor</li>
+            <li>Issue Price</li>
+            <li>Issue Yield</li>
+            <li>Net Change Code</li>
+            <li>Total Outstanding Amount</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.AmountOutstandingHistory.[0].ChangeAmount}}</li>
+            <li>{{this.AmountOutstandingHistory.[0].CurrencyIsoCode}}</li>
+            <li>{{this.AmountOutstandingHistory.[0].EffectiveFromDate}}</li>
+            <li>{{this.AmountOutstandingHistory.[0].FaceValueFactor}}</li>
+            <li>{{this.AmountOutstandingHistory.[0].IssuePrice}}</li>
+            <li>{{this.AmountOutstandingHistory.[0].IssueYield}}</li>
+            <li>{{this.AmountOutstandingHistory.[0].NetChangeCode}}</li>
+            <li>{{this.AmountOutstandingHistory.[0].TotalOutstandingAmount}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Coupon Rate Schedule</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Interest Leg Number</li>
+            <li>Effective From Date</li>
+            <li>Coupon Rate</li>
+            <li>Coupon Rate Code</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.CouponRateSchedule.[0].InterestLegNumber}}</li>
+            <li>{{this.CouponRateSchedule.[0].EffectiveFromDate}}</li>
+            <li>{{this.CouponRateSchedule.[0].CouponRate}}</li>
+            <li>{{this.CouponRateSchedule.[0].CouponRateCode}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Asset Status</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Asset Status Code</li>
+            <li>Effective From Date</li>
+            <li>Effective To Date</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.AssetStatus.AssetStatusCode}}</li>
+            <li>{{this.AssetStatus.EffectiveFromDate}}</li>
+            <li>{{this.AssetStatus.EffectiveToDate}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>Issuer</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Issuer Organization Name</li>
+            <li>Issuer Organization Type Code</li>
+            <li>Ultimate Parent Name</li>
+            <li>Ultimate Parent Type Code</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.Issuer.Names.Name.OrganizationName.[0].Name}}</li>
+            <li>{{this.Issuer.Names.Name.OrganizationName.[0].NameTypeCode}}</li>
+            <li>{{this.Issuer.UltimateParent.Names.Name.OrganizationName.[0].Name}}</li>
+            <li>{{this.Issuer.UltimateParent.Names.Name.OrganizationName.[0].NameTypeCode}}</li>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

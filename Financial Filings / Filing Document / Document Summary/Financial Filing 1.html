@@ -1,0 +1,59 @@
+<table>
+    <tbody>
+        {{#each FinancialFiling}}
+        <td colspan="2"><b>Document Financial Filing</b></td>
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>Document Control Number (DCN)</li>
+            <li>Document ID</li>
+            <li>Financial Filing Id</li>
+            <li>Document Title</li>
+            <li>Feed Name</li>
+            <li>Form Type</li>
+            <li>High Level Category</li>
+            <li>Mid Level Category</li>
+            <li>Filing Date</li>
+            <li>U.S. Securities and Exchange Commission Accession Number</li>
+            <li>Size in Bytes</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.FilingDocument.Identifiers.[0].Dcn}}</li>
+            <li>{{this.FilingDocument.DocId}}</li>
+            <li>{{this.FilingDocument.FinancialFilingId}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.DocumentTitle}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.FeedName}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.FormType}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.HighLevelCategory}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.MidLevelCategory}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.FilingDate}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.SecAccessionNumber}}</li>
+            <li>{{this.FilingDocument.DocumentSummary.SizeInBytes}}</li>
+            </ul>
+            </td>
+        </tr>
+        <td colspan="2"><b>File Metadata</b></td>
+        {{#each FilingDocument.FilesMetaData}}
+        <tr>
+            <td style="width: 50%;">
+            <ul>
+            <li>File Name</li>
+            <li>MIME type</li>
+            </ul>
+            </td>
+            <td style="width: 50%;">
+            <ul>
+            <li>{{this.FileName}}</li>
+            <li>{{this.MimeType}}</li>
+            </ul>
+            </td>
+        </tr>
+        {{/each}}
+        <tr>
+            <td style="width: 50%;" colspan="2">&nbsp;</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
